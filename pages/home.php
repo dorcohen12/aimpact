@@ -61,10 +61,9 @@
                                 <tbody>
                                     <?php 
                                         foreach($users as $key => $val) { 
-                                            $key = $key+1;
                                     ?>
                                             <tr id="user-<?php echo (int)$val['id'];?>">
-                                                <th scope="row"><?php echo (int)$key;?>.</th>
+                                                <th scope="row"><?php echo (int)$key+1;?>.</th>
                                                 <td><?php echo htmlspecialchars($val['first_name']);?></td>
                                                 <td><?php echo htmlspecialchars($val['last_name']);?></td>
                                                 <td><?php echo htmlspecialchars($val['phone_number']);?></td>
