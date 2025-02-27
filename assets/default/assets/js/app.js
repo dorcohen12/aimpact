@@ -299,8 +299,11 @@ jQuery(document).ready(function($){
                     App.notify('error', response.error);
                     return;
                 }
-                $(parent).trigger('reset');
+                $(parent)[0].reset();
                 App.notify('success', response.success);
+                setTimeout(() => {
+                    location.reload();
+                }, 2000);
             } catch (error) {
                 console.error('Error occurred:', error);
                 App.notify('error', 'לא ניתן לשלוח בקשה');
