@@ -4,6 +4,10 @@
 	$Website = new Website();
 	$Account = new Account();
 
+	const INVALID_ACTION = 'INVALID_ACTION';
+	const INVALID_SUB_ACTION = 'INVALID_SUB_ACTION';
+	const EXPIRED_CSRF = 'EXPIRED_CSRF';
+
 	$data = [];
     if($_SERVER['REQUEST_METHOD'] == 'POST' && $Website->VerifyAjax()) {
 		$action = isset($_POST['action']) ? $_POST['action'] : '';
@@ -41,15 +45,15 @@
 						$data = $Account->SyncUser($post_fields);
 						break;
 					default:
-						$data['error'] = 'Error code 0x03';
+						$data['error'] = INVALID_SUB_ACTION;
 				}
                 break;
             default:
-			$data['error'] = 'Error code 0x02';
+			$data['error'] = INVALID_ACTION;
 		}
 	}
 	else{
-		$data['error'] = 'Error code 0x01';
+		$data['error'] = EXPIRED_CSRF;
 		$data['type'] = 1;
 	}
 	echo json_encode($data);
