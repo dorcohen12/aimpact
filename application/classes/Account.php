@@ -37,7 +37,7 @@
 			return file_put_contents($path, json_encode($data, JSON_PRETTY_PRINT));
 		}
 
-        private function apiRequest() {
+        private function ApiRequest() {
             $headers = [
                 'Accept: text/plain',
                 'X-API-KEY: oJgCCk8q1Ir9CSrrp332YA==',
@@ -165,7 +165,7 @@
             ];
 
 
-            $api_call = $this->apiRequest();
+            $api_call = $this->ApiRequest();
             if(isset($api_call['Message']) && isset($api_call['StatusCode']) && $api_call['StatusCode'] === 400) {
                 return ['error' => $api_call['Message']];
             }
@@ -234,7 +234,7 @@
                 'LanguageCode' => 'EN'
             ];
 
-            $api_call = $this->apiRequest();        // create user at aimpact systems
+            $api_call = $this->ApiRequest();        // create user at aimpact systems
             
             if(isset($api_call['error'])) {
                 return ['error' => $api_call['error']];
