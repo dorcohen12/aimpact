@@ -2,6 +2,7 @@
 	defined('INSITE') or die("No direct script access allowed");
 	class Database{
 		public function __construct(){
+			public $db;
 			$options = [
 				PDO::ATTR_EMULATE_PREPARES => false,
 				PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
@@ -17,7 +18,7 @@
 				}
 			}
 			catch(PDOException $e){
-				die(print_r($e->getMessage()));
+				exit($e->getMessage());
 			}
 		}
 	}
