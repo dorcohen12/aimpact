@@ -1,7 +1,7 @@
 <?php
 	defined('INSITE') or die('No direct script access allowed');
     require TEMPLATE_DIR.'header.php';
-    $Account = new Account;
+    $Account = new Account();
     $users = $Account->GetUsers();
 ?>
 
