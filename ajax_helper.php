@@ -1,8 +1,8 @@
 <?php
 	session_start();
 	require 'autoloader.php';
-	$Website = new Website;
-	$Account = new Account;
+	$Website = new Website();
+	$Account = new Account();
 
 	$data = [];
     if($_SERVER['REQUEST_METHOD'] == 'POST' && $Website->VerifyAjax()) {
