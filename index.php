@@ -4,7 +4,7 @@
 	
 	require 'autoloader.php';
     
-	$Website = new Website;
+	$Website = new Website();
     $Website->AjaxToken();
 
 	$path = preg_replace('/\?.*/', '', $_SERVER['REQUEST_URI']);
